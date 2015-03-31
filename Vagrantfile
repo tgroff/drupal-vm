@@ -49,7 +49,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # HGFS kernel module currently doesn't load correctly for native shares.
     override.vm.synced_folder ".", "/vagrant", type: 'nfs'
 
-    v.gui = true
     v.vmx["memsize"] = vconfig['vagrant_memory']
     v.vmx["numvcpus"] = vconfig['vagrant_cpus']
   end
@@ -61,7 +60,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = vconfig['vagrant_cpus']
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
-  end
+    v.gui = true
+ end
 
   # Set the name of the VM. See: http://stackoverflow.com/a/17864388/100134
   config.vm.define :drupaldev do |drupaldev_config|

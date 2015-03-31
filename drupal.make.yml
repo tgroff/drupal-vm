@@ -11,6 +11,6 @@ projects:
 
   drupal:
     type: "core"
-    version: "7.0.x"
+    version: "7.x"
 
   devel: "1.x-dev"
